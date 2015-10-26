@@ -1,0 +1,20 @@
+include head.jade
+body
+	include header.jade
+	div.wrapper
+		section#gallery
+			div.container
+				div.row
+						if !(videos && videos.length)
+							p Nothing to see here. Move along...
+						else
+							div.video-gallery
+								each video in videos
+									div.col-md-4
+										h2
+											a(href="/video/#{video.id}")= video.title
+										img(src="#{video.thumb}", width="200")
+										p #{video.description}
+										-	for (var i=0; i<video.categories.length; i++) {
+											span #{video.categories[i]}, 
+										-	}

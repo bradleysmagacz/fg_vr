@@ -1,0 +1,31 @@
+include head.jade
+body
+	form(method='post', action='/signup', enctype='application/x-www-form-urlencoded')
+		h3 Create Account
+		if invalid
+			.error Please enter a valid email address and password.
+		if exists
+			.error Email address already exists.
+		if unmatched
+			.error Passwords do not match.
+		ul
+			li
+				label(for='first_name') First Name:
+				input#first_name(type='text', name='first_name')
+			li
+				label(for='last_name') Last Name:
+				input#last_name(type='text', name='last_name')
+			li
+				label(for='new_email') Email*:
+				input#new_email(type='email', name='new_email', required)
+			li
+				label(for='new_username') Username*:
+				input#new_username(type='text', pattern='^[a-zA-Z0-9]+$', maxlength='30', name='new_username', required)
+			li
+				label(for='new_password') Password*:
+				input#new_password(type='password', name='new_password', required)
+			li
+				label(for='confirm_password') Confirm Password*:
+				input#confirm_password(type='password', name='confirm_password', required)
+			input#create(type='submit', value='Create Account', name='create')
+script(src='js/front.js')

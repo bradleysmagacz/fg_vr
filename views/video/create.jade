@@ -1,0 +1,41 @@
+include head.jade
+body 
+	-	var action = video ? "/video/edit/"+video.id : "/video/create";
+	-	var title = video ? video.title : ''
+	-	var description = video ? video.description : ''
+	-	var IRcheck = video ? video.interracial : false
+	-	var thumb = video ? video.thumb : ''
+	section.sign-up.text-center
+		div.container
+			div.row
+				div.col-md-6.col-md-offset-3
+					h3 Create New Video
+					p Fill in the fields below to add a new video to the database
+					if exists
+						.error A video with this title already exists.
+					form.signup-form(method="post", action=action)
+						div.form-input-group
+							i.fa.fa-file-text
+							input#title(type='text', name='title', placeholder='Enter video title', value=title)
+						div.form-input-group.desc-text
+							i.fa.fa-file-text  
+							textarea#description(name='description', placeholder='Enter description...')= description
+						div.form-input-group
+							i.fa.fa-sitemap
+							input#categories(type='text', name='categories', placeholder='Enter each category separated by a comma')
+						div.form-input-group
+							input#iRacial(type='checkbox', name="iRacial", checked=IRcheck)
+							p.chk-val Interracial
+						div.form-input-group
+							i.fa.fa-picture-o 
+							input#imgPath(name='imgPath', placeholder='Enter image path', value=thumb)
+						button.btn-fill.sign-up-btn#submit(type='submit') Save
+	script(src='../../public/js/jquery-2.1.4.min.js')
+	script(src='../../public/js/bootstrap.min.js')
+	script(src='../bower_components/retina.js/dist/retina.js')
+	script(src='../../public/js/jquery.fancybox.pack.js')
+	script(src='../../public/js/scripts.js')
+	script(src='../../public/js/jquery.flexslider-min.js')
+	script(src='../bower_components/classie/classie.js')
+	script(src='../bower_components/jquery-waypoints/lib/jquery.waypoints.min.js')
+	script(src='../../public/js/d3.min.js')

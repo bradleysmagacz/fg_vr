@@ -1,0 +1,30 @@
+header
+	div.header-content
+		div.logo
+			a(href='#') 
+				img(src='../public/img/fg-logo.png', alt='Foggy Goggles Logo')
+		div.header-nav
+			nav
+				ul.primary-nav
+					li
+						a(href='/') Home
+					li
+						a(href='#gallery') Gallery
+				ul.member-actions
+					if session.isLoggedIn
+						li
+							a.login(href='/logout') Logout
+						if session.isAdmin
+							li
+								a.btn-white.btn-small(href='/admin') Admin Area
+						else
+							li
+								a.btn-white.btn-small(href='/account') Your Account
+					else
+						li
+							a.login(href='/login') Login
+						li
+							a.btn-white.btn-small(href='/signup') Sign Up
+		div.navicon
+			a.nav-toggle(href='#')
+				span

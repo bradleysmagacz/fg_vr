@@ -1,0 +1,9 @@
+include head.jade
+body
+	if session.isAdmin
+		include admin-area.jade
+	else
+		include admin-login.jade
+	script(src='public/js/jquery-2.1.4.min.js')
+	script(src='public/js/bootstrap.min.js')
+	script(src='public/js/main.js')

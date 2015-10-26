@@ -1,0 +1,28 @@
+include head.jade
+body
+  section.gallery
+    include header.jade
+    section.text-center
+      div.container
+        div.row
+          div.col-md-6.col-md-offset-3
+            h2= video.title
+            img(src="../#{video.thumb}", width="80%")
+            p= video.description
+            span= video.created.toDateString()
+            br
+            div.categories
+              h4 Categories
+            - for (var i=0; i<video.categories.length; i++) {
+              a(href='../category/#{video.categories[i]}')
+                button.btn-fill.category-btn #{video.categories[i]} 
+            - }
+            br
+            br
+            div.controls
+              span 
+                a(href="/video/edit/" + video.id) Edit
+              span
+                | |
+              span 
+                a(href="/video/remove/" + video.id) Delete

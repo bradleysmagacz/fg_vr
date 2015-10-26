@@ -1,0 +1,54 @@
+doctype html
+html
+	include head.jade
+	body#top
+		section.hero
+			div#overlay
+			section.navigation
+				include header.jade
+			section.introduction
+				div.container
+					div.row
+						div.col-md-10.col-md-offset-1
+							div.hero-content.text-center
+								h1 Foggy Goggles
+								p.intro Experience content like never before.
+								a.btn.btn-fill.btn-large.btn-margin-right(href='#') Tour
+								a.btn.btn-accent.btn-large(href='#gallery') Gallery
+			div.down-arrow.floating-arrow
+				a(href='#')
+					i.fa.fa-angle-down
+		section.blog.text-center#gallery
+			div.container-fluid
+				div.row
+					each video in videos
+						div.col-md-4
+							article.blog-post
+								figure
+									a.single_image(href='#{video.thumb}')
+										div.blog-img-wrap
+											div.overlay
+												i.fa.fa-search
+											img(src='#{video.thumb}', alt='')
+									figcaption
+										h2
+											a.blog-category(href='#', data-toggle='tooltip', data-placement='top', data-original-title='See more videos')= video.description
+										p
+											a.blog-post-title(href='/video/#{video.id}')= video.title
+												i.fa.fa-angle-right
+					a.btn.btn-ghost.btn-accent.btn-small(href='#') More Videos
+		section.to-top
+			div.container
+				div.row
+					div.to-top-wrap
+						a.top(href='#top')
+							i.fa.fa-angle-up
+		include footer.jade
+	script(src='public/js/jquery-2.1.4.min.js')
+	script(src='public/js/bootstrap.min.js')
+	script(src='bower_components/retina.js/dist/retina.js')
+	script(src='public/js/jquery.fancybox.pack.js')
+	script(src='public/js/scripts.js')
+	script(src='public/js/jquery.flexslider-min.js')
+	script(src='bower_components/classie/classie.js')
+	script(src='bower_components/jquery-waypoints/lib/jquery.waypoints.min.js')
