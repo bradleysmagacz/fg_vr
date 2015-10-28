@@ -15,7 +15,6 @@ module.exports = function (app) {
     var imgPath = cleanString(req.body.imgPath);
     var categoryField = cleanString(req.body.categories);
     categoryField = categoryField.replace(/\s+/g, '').toLowerCase();
-    var iRacial = req.body.iRacial;
 
     var dup_key = true;
 
@@ -42,7 +41,6 @@ module.exports = function (app) {
           , title: title
           , description: desc
           , categories: categories
-          , interracial: iRacial
           , thumb: imgPath
          }, function (err, video) {
            if (err) return next(err);
@@ -94,7 +92,7 @@ module.exports = function (app) {
         return res.send(403);
       }
 
-      Video.remove(function (err) {
+      video.remove(function (err) {
         if (err) return next(err);
 
         // TODO display a confirmation msg to user

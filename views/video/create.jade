@@ -3,7 +3,6 @@ body
 	-	var action = video ? "/video/edit/"+video.id : "/video/create";
 	-	var title = video ? video.title : ''
 	-	var description = video ? video.description : ''
-	-	var IRcheck = video ? video.interracial : false
 	-	var thumb = video ? video.thumb : ''
 	section.sign-up.text-center
 		div.container
@@ -23,9 +22,6 @@ body
 						div.form-input-group
 							i.fa.fa-sitemap
 							input#categories(type='text', name='categories', placeholder='Enter each category separated by a comma')
-						div.form-input-group
-							input#iRacial(type='checkbox', name="iRacial", checked=IRcheck)
-							p.chk-val Interracial
 						div.form-input-group
 							i.fa.fa-picture-o 
 							input#imgPath(name='imgPath', placeholder='Enter image path', value=thumb)
